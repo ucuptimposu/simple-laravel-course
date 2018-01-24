@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Hallo Blog</h1>
-  </body>
-</html>
+@extends('layout.master')
+
+@section('title', 'My Best Blog')
+
+@section('content')
+<h1>Selamat Datang</h1>
+<p>Selamat datang di Blog ogud</p>
+@endsection

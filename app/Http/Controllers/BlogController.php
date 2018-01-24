@@ -13,6 +13,9 @@ class BlogController extends Controller
 
     public function show($id)
     {
-      return $id;
+      $nilai = "Nilai parameternya = ". $id;
+      $user = "ucup";
+      $users = ['ucup', 'budi', 'azwar'];
+      return view('blog/single', ['nilai' => $nilai, 'users' => $users]);
     }
 }
