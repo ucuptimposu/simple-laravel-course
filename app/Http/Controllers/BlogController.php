@@ -16,6 +16,7 @@ class BlogController extends Controller
       $nilai = "Nilai parameternya = ". $id;
       $user = "ucup";
       $users = ['ucup', 'budi', 'azwar'];
-      return view('blog/single', ['nilai' => $nilai, 'users' => $users]);
+      $unescape = '<script> alert("x") </script>';
+      return view('blog/single', ['nilai' => $nilai, 'users' => $users, 'unescape' => $unescape]);
     }
 }

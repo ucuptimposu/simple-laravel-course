@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
+@extends('layout.master')
+
+@section('title', 'My Best Blog')
+
+@section('content')
     <h1>Hallo Blog</h1>
     <h2> {{ $nilai }} </h2>
 
@@ -14,5 +12,12 @@
     </li>
     @endforeach
 
-  </body>
-</html>
+    {!! $unescape !!}
+
+    @if(count($users) > 5)
+      <p>User lebih dari lima</p>
+    @else
+      <p>User tidak lebih dari lima</p>
+    @endif
+
+@endsection
