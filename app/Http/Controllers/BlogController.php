@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -15,7 +16,14 @@ class BlogController extends Controller
     {
       $nilai = "Nilai parameternya = ". $id;
       $user = "ucup";
-      $users = ['ucup', 'budi', 'azwar'];
+
+      DB::table('users')->insert(
+        ['username' => 'azka', 'password' => 'zaky']
+      );
+
+      $users = DB::table('users')->get();
+      //dd($users); ->untuk melihat isi datanya
+
       $unescape = '<script> alert("x") </script>';
       return view('blog/single', ['nilai' => $nilai, 'users' => $users, 'unescape' => $unescape]);
     }

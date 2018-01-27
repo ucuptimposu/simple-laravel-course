@@ -8,7 +8,7 @@
 
     @foreach($users as $user)
     <li>
-      {{$user}}
+      {{$user -> username .' '. $user -> password}}
     </li>
     @endforeach
 
