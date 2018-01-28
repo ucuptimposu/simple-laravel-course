@@ -5,26 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use App\Blog;
+
 class BlogController extends Controller
 {
     public function index()
     {
-      return view('blog/home');
+
+      $blogs = Blog::all();
+      //dd($blogs);
+
+      return view('blog/home', ['blogs' => $blogs]);
     }
 
     public function show($id)
     {
-      $nilai = "Nilai parameternya = ". $id;
-      $user = "ucup";
 
-      DB::table('users')->insert(
-        ['username' => 'azka', 'password' => 'zaky']
-      );
-
-      $users = DB::table('users')->get();
-      //dd($users); ->untuk melihat isi datanya
-
-      $unescape = '<script> alert("x") </script>';
-      return view('blog/single', ['nilai' => $nilai, 'users' => $users, 'unescape' => $unescape]);
+      $blog = Blog::find($id);
+      // dd($blog);
+      return view('blog/single', ['blog' => $blog]);
     }
 }
