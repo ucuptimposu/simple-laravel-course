@@ -43,6 +43,15 @@ class BlogController extends Controller
       //atau delete ke 2
       //Blog::destroy([14, 15, 16, 17, 18]);
 
+      //softdelete -> fungsinya dia tidak langsung menghapus datanya disimpan di trash gitu deh
+      // Blog::find(1)->delete();
+
+      //liat semua data
+      //$blogs = Blog::withTrashed()->get();
+
+      //restore
+      Blog::withTrashed()->restore(); //atau tambahkan find(x) untuk lebih spesifik
+
       $blogs = Blog::all();
       //dd($blogs);
       return view('blog/home', ['blogs' => $blogs]);
