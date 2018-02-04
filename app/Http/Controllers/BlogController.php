@@ -55,8 +55,15 @@ class BlogController extends Controller
       //restore
       //Blog::withTrashed()->restore(); //atau tambahkan find(x) untuk lebih spesifik
 
-      $blogs = Blog::all();
+      // index datanya
+      // $blogs = Blog::all();
       //dd($blogs);
+
+      // pagination
+      $blogs = Blog::simplePaginate(10);
+      // set default path
+      $blogs->withPath('blog');
+
       return view('blog/home', ['blogs' => $blogs]);
     }
 
